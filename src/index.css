@@ -1,0 +1,465 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 158 64% 52%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 158 64% 52%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 158 64% 52%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 158 64% 52%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 151 55% 41.5%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 151 55% 41.5%;
+    --accent-foreground: 144.9 80.4% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 151 55% 41.5%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 151 55% 41.5%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 151 55% 41.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Enhanced mobile zoom prevention */
+  input, textarea, select {
+    font-size: 16px !important;
+    -webkit-user-select: text;
+    -webkit-touch-callout: default;
+    transform-origin: left top;
+    -webkit-transform-origin: left top;
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0;
+    border-radius: 0.5rem;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    -webkit-user-select: text;
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    zoom: 1 !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Enhanced mobile touch improvements */
+  button, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improved mobile scrolling */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Enhanced Arabic language support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  [dir="rtl"] .rtl\:text-left {
+    text-align: left;
+  }
+
+  [dir="rtl"] .rtl\:text-right {
+    text-align: right;
+  }
+
+  /* Better font rendering for Arabic */
+  [lang="ar"], [dir="rtl"] {
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  .glass-effect {
+    @apply bg-white/20 backdrop-blur-md border border-white/30;
+  }
+
+  /* Fixed notification text colors */
+  [data-sonner-toaster] [data-title] {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  [data-sonner-toaster] [data-description] {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  /* Light mode specific notification colors */
+  :not(.dark) [data-sonner-toaster] [data-title] {
+    color: #1f2937 !important;
+  }
+
+  :not(.dark) [data-sonner-toaster] [data-description] {
+    color: #6b7280 !important;
+  }
+
+  /* Dark mode specific notification colors */
+  .dark [data-sonner-toaster] [data-title] {
+    color: #f9fafb !important;
+  }
+
+  .dark [data-sonner-toaster] [data-description] {
+    color: #d1d5db !important;
+  }
+
+  /* Enhanced mobile-specific improvements */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Enhanced chat input container for mobile with RTL support */
+  .chat-input-container {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* RTL-specific chat input positioning */
+  [dir="rtl"] .chat-input-container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  [dir="ltr"] .chat-input-container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Enhanced mobile input styling with better zoom prevention */
+  .mobile-input-enhanced {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0;
+    border-radius: 0.5rem;
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    zoom: 1 !important;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .mobile-input-enhanced:focus {
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    zoom: 1 !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Enhanced code block styling */
+  .prose code {
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .prose pre {
+    @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0 rounded-none;
+  }
+
+  /* Enhanced settings panel for mobile */
+  .settings-panel-mobile {
+    width: 100vw;
+    max-width: 360px;
+  }
+
+  /* Better button touch targets */
+  .button-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Enhanced mobile chat message layout */
+  .chat-message-mobile {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+  }
+
+  /* Better mobile viewport handling */
+  .mobile-viewport {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
+
+  .min-h-screen-mobile {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Enhanced scroll utilities */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Enhanced mobile-specific fixes */
+@media (max-width: 768px) {
+  /* Stronger zoom prevention for all input types */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important;
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0;
+    border-radius: 0.5rem;
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    zoom: 1 !important;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Enhanced touch targets for mobile */
+  button, .touch-target, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Better mobile viewport handling */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  /* Enhanced mobile settings panel */
+  .settings-panel-mobile {
+    width: calc(100vw - 16px);
+    max-width: 360px;
+    margin: 0 8px;
+  }
+
+  /* Enhanced chat input centering */
+  .chat-input-container {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    padding: 0.75rem;
+  }
+
+  /* Better mobile message layout */
+  .chat-message-mobile {
+    max-width: calc(100vw - 32px);
+    margin: 0.5rem auto;
+  }
+}
+
+/* Enhanced iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+
+  /* Enhanced zoom prevention for iOS */
+  input, textarea, select {
+    -webkit-text-size-adjust: 100% !important;
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    -webkit-appearance: none !important;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    zoom: 1 !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Better iOS keyboard handling */
+  .mobile-input-enhanced {
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    -webkit-appearance: none !important;
+  }
+}
+
+/* Enhanced Android Chrome specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input:focus, textarea:focus, select:focus {
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+    zoom: 1 !important;
+  }
+}
+
+/* Enhanced scrollbar styling - Updated to emerald */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.5);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.7);
+}
+
+/* Enhanced focus styles for accessibility - Updated to emerald */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-transparent;
+}
+
+/* Enhanced touch feedback */
+button:active, [role="button"]:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* Better mobile message bubble styling */
+@media (max-width: 768px) {
+  .chat-message-bubble {
+    max-width: calc(100vw - 80px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Enhanced mobile code block styling */
+  .prose pre {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    font-size: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better mobile typography */
+  .prose {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .prose h1 {
+    font-size: 1.5rem;
+  }
+  
+  .prose h2 {
+    font-size: 1.25rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.125rem;
+  }
+}
+
+/* Enhanced mobile landscape support */
+@media (max-width: 768px) and (orientation: landscape) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  .chat-input-container {
+    padding: 0.5rem 0.75rem;
+  }
+}

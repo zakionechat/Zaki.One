@@ -1,0 +1,218 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Force text selection for ALL elements by default */
+* {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+  -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Override for buttons and interactive elements */
+button, 
+.button, 
+[role="button"],
+input,
+textarea,
+select {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* STRONGEST text selection for chatbot content - ALL LANGUAGES */
+.selectable-bot-content,
+.selectable-bot-content *,
+.selectable-bot-content p,
+.selectable-bot-content pre,
+.selectable-bot-content code,
+.selectable-bot-content h1,
+.selectable-bot-content h2,
+.selectable-bot-content h3,
+.selectable-bot-content h4,
+.selectable-bot-content h5,
+.selectable-bot-content h6,
+.selectable-bot-content div,
+.selectable-bot-content span,
+.selectable-bot-content ul,
+.selectable-bot-content ol,
+.selectable-bot-content li,
+.selectable-bot-content strong,
+.selectable-bot-content em {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+  -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3) !important;
+  cursor: text !important;
+}
+
+/* Enhanced text selection for chat messages - ALL LANGUAGES */
+.chat-message-mobile,
+.chat-message-mobile *,
+.chat-message-mobile p,
+.chat-message-mobile pre,
+.chat-message-mobile code,
+.chat-message-mobile h1,
+.chat-message-mobile h2,
+.chat-message-mobile h3,
+.chat-message-mobile h4,
+.chat-message-mobile h5,
+.chat-message-mobile h6,
+.chat-message-mobile div,
+.chat-message-mobile span,
+.chat-message-mobile ul,
+.chat-message-mobile ol,
+.chat-message-mobile li,
+.chat-message-mobile strong,
+.chat-message-mobile em {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+  cursor: text !important;
+}
+
+/* UNIVERSAL bullet point and number alignment for ALL LANGUAGES */
+.chat-message-mobile ul,
+.chat-message-mobile ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+  list-style-position: outside;
+}
+
+.chat-message-mobile li {
+  display: list-item;
+  list-style-position: outside;
+  margin: 0.25rem 0;
+  line-height: 1.6;
+  vertical-align: top;
+  position: relative;
+}
+
+.chat-message-mobile ul li {
+  list-style-type: disc;
+}
+
+.chat-message-mobile ol li {
+  list-style-type: decimal;
+}
+
+/* Hide default markers for custom alignment */
+.chat-message-mobile ul li::marker,
+.chat-message-mobile ol li::marker {
+  content: "";
+}
+
+/* Custom bullet alignment for ALL LANGUAGES */
+.chat-message-mobile ul li {
+  position: relative;
+  padding-left: 0;
+}
+
+.chat-message-mobile ul li::before {
+  content: "•";
+  position: absolute;
+  left: -1.2rem;
+  top: 0;
+  color: inherit;
+  font-weight: bold;
+  line-height: 1.6;
+  height: 1.6em;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.05em;
+}
+
+/* Custom number alignment for ALL LANGUAGES */
+.chat-message-mobile ol li {
+  position: relative;
+  padding-left: 0;
+  counter-increment: list-counter;
+}
+
+.chat-message-mobile ol {
+  counter-reset: list-counter;
+}
+
+.chat-message-mobile ol li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: -1.8rem;
+  top: 0;
+  color: inherit;
+  font-weight: bold;
+  line-height: 1.6;
+  min-width: 1.5rem;
+  text-align: right;
+  height: 1.6em;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.05em;
+}
+
+/* RTL-specific positioning (Arabic) */
+.chat-message-mobile[dir="rtl"] ul,
+.chat-message-mobile[dir="rtl"] ol {
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+.chat-message-mobile[dir="rtl"] ul li::before {
+  right: -1.2rem;
+  left: auto;
+}
+
+.chat-message-mobile[dir="rtl"] ol li::before {
+  right: -1.8rem;
+  left: auto;
+  text-align: left;
+}

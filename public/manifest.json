@@ -1,0 +1,43 @@
+
+{
+  "name": "Zaki.One - AI Chatbot",
+  "short_name": "Zaki.One",
+  "description": "رفيقك المحادث المدعوم بالذكاء الاصطناعي",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10b981",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/lovable-uploads/f7072446-2cc0-4c29-9213-6109109a16e3.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/lovable-uploads/f7072446-2cc0-4c29-9213-6109109a16e3.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/lovable-uploads/f7072446-2cc0-4c29-9213-6109109a16e3.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/lovable-uploads/f7072446-2cc0-4c29-9213-6109109a16e3.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/lovable-uploads/f7072446-2cc0-4c29-9213-6109109a16e3.png",
+      "sizes": "167x167",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
